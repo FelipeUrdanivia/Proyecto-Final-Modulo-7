@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Listar Libros{% endblock %}
+
+{% block content %}
+    <h1>Listar Libros</h1>
+    <a href="{% url 'crear_libro' %}">Crear Libro</a>
+    <ul>
+        {% for libro in libros %}
+            <li>{{ libro.titulo }} - <a href="{% url 'actualizar_libro' libro.id %}">Actualizar</a> - <a href="{% url 'eliminar_libro' libro.id %}">Eliminar</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
